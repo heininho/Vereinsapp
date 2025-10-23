@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vereinsapp</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vereinsapp</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header>
     <a href="https://www.instagram.com/dein_account" target="_blank">
         <img src="Instagram_icon.png" alt="Instagram" class="insta-icon">
     </a>
-
     <div class="menu-btn" id="menuBtn">☰</div>
     <nav id="menu">
         <ul>
-            <li><a href="#" id="teamsMenu">Mannschaften</a></li>
-            <li><a href="#" id="tableMenu">Tabelle</a></li>
-            <li><a href="#" id="statsMenu">Statistiken</a></li>
+            <li><a href="#">Einstellungen</a></li>
+            <li><a href="#">Kontakt</a></li>
         </ul>
     </nav>
 </header>
 
 <main>
     <!-- Startseite -->
-    <div class="logo-container" id="home">
-        <img src="vfr_logo_250-2.png" alt="Vereinslogo" class="logo">
-    </div>
-
-    <!-- Mannschaftsübersicht -->
-    <div id="teamOverview" class="section" style="display:none;">
-        <h2>Mannschaften</h2>
-        <div class="team-buttons">
-            <button class="team-btn" data-team="team1">1. Mannschaft</button>
-            <button class="team-btn" data-team="team2">2. Mannschaft</button>
+    <div class="section" id="home">
+        <div class="logo-container">
+            <img src="vfr_logo_250-2.png" alt="Vereinslogo" class="logo">
         </div>
     </div>
 
+    <!-- Mannschaften Übersicht -->
+    <div class="section" id="teamOverview" style="display:none;">
+        <h2>Mannschaften</h2>
+        <button class="team-btn" data-team="team1">1. Mannschaft</button>
+        <button class="team-btn" data-team="team2">2. Mannschaft</button>
+    </div>
+
     <!-- Mannschaft Details -->
-    <div id="teamsSection" class="section" style="display:none;">
+    <div class="section" id="teamsSection" style="display:none;">
         <button id="backBtn">← Zur Übersicht</button>
         <h2 id="teamName">Mannschaft</h2>
 
@@ -64,7 +63,6 @@
                     <div class="accordion-content">
                         <ul class="player-list">
                             <li class="player" data-name="Max Mustermann" data-number="2">2 Max Mustermann</li>
-                            <li class="player" data-name="Paul Beispiel" data-number="3">3 Paul Beispiel</li>
                         </ul>
                     </div>
                 </div>
@@ -111,19 +109,19 @@
     </div>
 
     <!-- Tabelle -->
-    <div id="tableSection" class="section" style="display:none;">
+    <div class="section" id="tableSection" style="display:none;">
         <h2>Tabelle</h2>
-        <p>Hier können die Vereins-Tabelle/Daten eingetragen werden.</p>
+        <p>Hier können Vereins-Tabelle/Daten eingetragen werden.</p>
     </div>
 
     <!-- Statistiken -->
-    <div id="statsSection" class="section" style="display:none;">
+    <div class="section" id="statsSection" style="display:none;">
         <h2>Statistiken</h2>
         <p>Hier können Statistiken angezeigt werden.</p>
     </div>
 
     <!-- Spielerprofil Modal -->
-    <div id="playerModal" class="modal">
+    <div id="playerModal" class="modal" style="display:none;">
         <div class="modal-content">
             <span class="close">&times;</span>
             <img src="platzhalter.png" alt="Spielerbild" class="player-img">
@@ -132,24 +130,32 @@
             <div class="accordion">
                 <div class="accordion-item">
                     <div class="accordion-header">Beim VfR seit <span class="toggle">+</span></div>
-                    <div class="accordion-content">Platzhalter</div>
+                    <div class="accordion-content">2018</div>
                 </div>
                 <div class="accordion-item">
                     <div class="accordion-header">Größe <span class="toggle">+</span></div>
-                    <div class="accordion-content">Platzhalter</div>
+                    <div class="accordion-content">1,85 m</div>
                 </div>
                 <div class="accordion-item">
                     <div class="accordion-header">Geburtsdatum <span class="toggle">+</span></div>
-                    <div class="accordion-content">Platzhalter</div>
+                    <div class="accordion-content">01.01.2000</div>
                 </div>
                 <div class="accordion-item">
                     <div class="accordion-header">Nationalität <span class="toggle">+</span></div>
-                    <div class="accordion-content">Platzhalter</div>
+                    <div class="accordion-content">Deutschland</div>
                 </div>
             </div>
         </div>
     </div>
 </main>
+
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+    <button class="bottom-btn" data-section="home">Home</button>
+    <button class="bottom-btn" data-section="teamOverview">Mannschaften</button>
+    <button class="bottom-btn" data-section="tableSection">Tabelle</button>
+    <button class="bottom-btn" data-section="statsSection">Statistiken</button>
+</div>
 
 <script src="script.js"></script>
 </body>
