@@ -32,10 +32,38 @@
 
         <!-- Mannschaften -->
         <div id="teamsSection" class="section" style="display:none;">
-            <h2>Mannschaften</h2>
-            <button id="addTeamBtn">Neue Mannschaft hinzufügen</button>
-            <ul id="teamList"></ul>
-        </div>
+            <h2>Mannschaft</h2>
+            <!-- Mannschaften -->
+<div id="teamsSection" class="section" style="display:none;">
+    <h2>Mannschaft</h2>
+
+    <!-- Tabs oben -->
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="kaderTab">Kader</button>
+        <button class="tab-btn" data-tab="trainerTab">Trainerteam</button>
+    </div>
+
+    <!-- Inhalt Kader -->
+    <div id="kaderTab" class="tab-content">
+        <h3>Kader</h3>
+        <ul>
+            <li>Torhüter</li>
+            <li>Abwehr</li>
+            <li>Mittelfeld</li>
+            <li>Stürmer</li>
+        </ul>
+    </div>
+
+    <!-- Inhalt Trainerteam -->
+    <div id="trainerTab" class="tab-content" style="display:none;">
+        <h3>Trainerteam</h3>
+        <ul>
+            <li>Chef</li>
+            <li>Co-Trainer</li>
+        </ul>
+    </div>
+</div>
+
 
         <!-- Tabelle -->
         <div id="tableSection" class="section" style="display:none;">
