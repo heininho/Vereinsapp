@@ -64,12 +64,13 @@ nav ul li a:hover {
 }
 /* Instagram Icon */
 .insta-icon {
-    position: absolute;
-    top: 20px;
-    left: 20%;
-    transform: none;
-    width: 30px;
-    height: 30px;
+    position: relative;
+    padding: 20px;
+    text-align: left;
+}
+
+.insta {
+    font-size: 30px;
     cursor: pointer;
-    fill: white; /* Farbe Weiß */
+    
 }
