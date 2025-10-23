@@ -66,8 +66,8 @@ nav ul li a:hover {
 .insta-icon {
     position: absolute;
     top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 20%;
+    transform: none;
     width: 30px;
     height: 30px;
     cursor: pointer;
