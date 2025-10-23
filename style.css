@@ -1,1 +1,53 @@
+/* Hintergrund */
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #0085cd;
+  color: white;
+}
 
+/* Header */
+header {
+  position: relative;
+  background-color: #0072b3;
+  padding: 10px 20px;
+}
+
+/* Hamburger-Button */
+.menu-btn {
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Menü */
+nav {
+  display: none; /* anfangs versteckt */
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  background-color: #0066a1;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+nav a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Aktiv: Menü sichtbar */
+nav.active {
+  display: block;
+}
