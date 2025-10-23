@@ -1,4 +1,5 @@
-/* Hintergrund */
+
+/* Grundlayout */
 body {
   margin: 0;
   font-family: sans-serif;
@@ -11,18 +12,22 @@ header {
   position: relative;
   background-color: #0072b3;
   padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Hamburger-Button */
 .menu-btn {
-  font-size: 24px;
+  font-size: 26px;
   cursor: pointer;
   user-select: none;
+  display: none; /* standardmäßig ausgeblendet */
 }
 
 /* Menü */
 nav {
-  display: none; /* anfangs versteckt */
+  display: none;
   position: absolute;
   top: 50px;
   left: 0;
@@ -30,24 +35,54 @@ nav {
   background-color: #0066a1;
 }
 
+/* Menü sichtbar */
+nav.active {
+  display: block;
+}
+
+/* Menü-Liste */
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-nav li {
+.menu-item {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-nav a {
+.menu-toggle {
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.submenu {
+  display: none;
+  background-color: #005788;
+}
+
+.submenu li a {
   display: block;
-  padding: 10px 20px;
+  padding: 10px 30px;
   color: white;
   text-decoration: none;
 }
 
-/* Aktiv: Menü sichtbar */
-nav.active {
+/* Aktiviertes Submenü */
+.submenu.active {
   display: block;
+}
+
+.symbol {
+  font-weight: bold;
+}
+
+/* Nur auf Handys anzeigen */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
 }
