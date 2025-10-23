@@ -2,19 +2,46 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #004080; /* Vereinsfarbe Blau */
+    background-color: #0085CD; /* Vereinsfarbe Blau */
     color: white;
     height: 100vh;
 }
 
-/* Header & Menü */
+/* Header */
 header {
     position: relative;
     padding: 20px;
-    text-align: right;
 }
 
+/* Instagram Icon oben links */
+.insta-icon {
+    position: absolute;
+    top: 20px;       /* gleiche Höhe wie Menü */
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Logo in der Mitte */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+
+/* Logo Größe */
+.logo {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+/* Menü rechts */
 .menu-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     font-size: 30px;
     cursor: pointer;
 }
@@ -45,30 +72,37 @@ nav ul li a:hover {
     background-color: rgba(255,255,255,0.2);
 }
 
-/* Logo */
-.logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80%;
-}
-
-.logo {
-    max-width: 300px;
-    max-height: 300px;
-}
-
 /* Unterseiten */
 .section {
     padding: 20px;
 }
 
-/* Instagram Icon oben links */
-.insta-icon {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
+/* Mannschaften-Liste */
+#teamList {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
 }
+
+#teamList li {
+    padding: 5px 10px;
+    background-color: rgba(255,255,255,0.1);
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+/* Buttons */
+button {
+    padding: 8px 15px;
+    margin-top: 10px;
+    background-color: #0066cc;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0055a3;
+}
+
