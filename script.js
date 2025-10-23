@@ -1,4 +1,4 @@
-// Menü
+// Hamburger Menü
 const menuBtn = document.getElementById("menuBtn");
 const menu = document.getElementById("menu");
 
@@ -76,15 +76,4 @@ tabButtons.forEach(btn => {
 
 // Akkordeon
 document.querySelectorAll(".accordion-header").forEach(header => {
-    header.addEventListener("click", () => {
-        const content = header.nextElementSibling;
-        const toggle = header.querySelector(".toggle");
-        if (content.style.display === "block") {
-            content.style.display = "none";
-            toggle.textContent = "+";
-        } else {
-            content.style.display = "block";
-            toggle.textContent = "−";
-        }
-    });
-});
+    header.addEventListener("click
