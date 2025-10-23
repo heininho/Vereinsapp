@@ -143,6 +143,19 @@ nav ul li a:hover {
     padding: 5px 10px 10px 10px;
 }
 
+/* Spieler */
+.player {
+    cursor: pointer;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 4px;
+}
+
+.player:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
 /* Spielerprofil Modal */
 .modal {
     display: none;
@@ -157,8 +170,8 @@ nav ul li a:hover {
     border-top-right-radius: 10px;
     overflow-y: auto;
     box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
-    animation: slideUp 0.3s ease-out;
     z-index: 1000;
+    animation: slideUp 0.3s ease-out;
 }
 
 @keyframes slideUp {
@@ -188,6 +201,7 @@ nav ul li a:hover {
     margin: 10px 0;
 }
 
+/* Modal-Akkordeon */
 .modal .accordion-item {
     border-bottom: 1px solid #0085CD;
     margin-bottom: 5px;
@@ -199,9 +213,11 @@ nav ul li a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #0085CD;
 }
 
 .modal .accordion-content {
     display: none;
     padding: 5px 10px 10px 10px;
+    color: black; /* Schrift schwarz */
 }
