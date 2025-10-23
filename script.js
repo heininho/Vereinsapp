@@ -7,8 +7,15 @@ menuBtn.addEventListener("click", () => {
     ul.style.display = (ul.style.display === "block") ? "none" : "block";
 });
 
+// Menü nach Klick schließen
+document.querySelectorAll("#menu ul li a").forEach(link => {
+    link.addEventListener("click", () => {
+        menu.querySelector("ul").style.display = "none";
+    });
+});
+
 // Sektionen steuern
-const home = document.querySelector(".logo-container");
+const home = document.getElementById("home");
 const teamsSection = document.getElementById("teamsSection");
 const tableSection = document.getElementById("tableSection");
 const statsSection = document.getElementById("statsSection");
@@ -34,27 +41,15 @@ document.getElementById("statsMenu").addEventListener("click", () => {
     statsSection.style.display = "block";
 });
 
-// Mannschaften speichern & anzeigen
-const addTeamBtn = document.getElementById("addTeamBtn");
-const teamList = document.getElementById("teamList");
-let teams = JSON.parse(localStorage.getItem("teams")) || [];
+// Tabs für Kader / Trainerteam
+const tabButtons = document.querySelectorAll(".tab-btn");
+const tabContents = document.querySelectorAll(".tab-content");
 
-function renderTeams() {
-    teamList.innerHTML = "";
-    teams.forEach(team => {
-        const li = document.createElement("li");
-        li.textContent = team;
-        teamList.appendChild(li);
+tabButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        tabContents.forEach(tc => tc.style.display = "none");
+        tabButtons.forEach(b => b.classList.remove("active"));
+        document.getElementById(btn.dataset.tab).style.display = "block";
+        btn.classList.add("active");
     });
-}
-
-renderTeams();
-
-addTeamBtn.addEventListener("click", () => {
-    const team = prompt("Name der neuen Mannschaft:");
-    if (team) {
-        teams.push(team);
-        localStorage.setItem("teams", JSON.stringify(teams));
-        renderTeams();
-    }
 });
