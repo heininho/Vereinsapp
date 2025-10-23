@@ -7,12 +7,6 @@ menuBtn.addEventListener("click", () => {
     ul.style.display = (ul.style.display === "block") ? "none" : "block";
 });
 
-document.querySelectorAll("#menu ul li a").forEach(link => {
-    link.addEventListener("click", () => {
-        menu.querySelector("ul").style.display = "none";
-    });
-});
-
 // Sektionen
 const home = document.getElementById("home");
 const teamOverview = document.getElementById("teamOverview");
@@ -76,4 +70,44 @@ tabButtons.forEach(btn => {
 
 // Akkordeon
 document.querySelectorAll(".accordion-header").forEach(header => {
-    header.addEventListener("click
+    header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+        const toggle = header.querySelector(".toggle");
+        if (content.style.display === "block") {
+            content.style.display = "none";
+            toggle.textContent = "+";
+        } else {
+            content.style.display = "block";
+            toggle.textContent = "−";
+        }
+    });
+});
+
+// Spielerprofil Modal
+const playerModal = document.getElementById("playerModal");
+const playerNameElem = playerModal.querySelector(".player-name");
+const playerImg = playerModal.querySelector(".player-img");
+const closeModal = playerModal.querySelector(".close");
+
+document.querySelectorAll(".player").forEach(player => {
+    player.addEventListener("click", () => {
+        playerNameElem.textContent = `${player.dataset.number} ${player.dataset.name}`;
+        playerImg.src = "platzhalter.png";
+        playerModal.style.display = "block";
+
+        // Reset Akkordeon im Modal
+        playerModal.querySelectorAll(".accordion-content").forEach(c => c.style.display="none");
+        playerModal.querySelectorAll(".accordion-header .toggle").forEach(t=>t.textContent="+");
+    });
+});
+
+closeModal.addEventListener("click", () => {
+    playerModal.style.display = "none";
+});
+
+// Modal schließen wenn außerhalb klicken
+window.addEventListener("click", (e) => {
+    if (e.target === playerModal) {
+        playerModal.style.display = "none";
+    }
+});
