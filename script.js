@@ -16,12 +16,14 @@ const statsSection = document.getElementById("statsSection");
 const teamName = document.getElementById("teamName");
 const backBtn = document.getElementById("backBtn");
 
+// Menü + Sektionen
 document.getElementById("teamsMenu").addEventListener("click", () => {
     home.style.display = "none";
     teamOverview.style.display = "block";
     teamsSection.style.display = "none";
     tableSection.style.display = "none";
     statsSection.style.display = "none";
+    menu.querySelector("ul").style.display = "none";
 });
 
 document.getElementById("tableMenu").addEventListener("click", () => {
@@ -30,6 +32,7 @@ document.getElementById("tableMenu").addEventListener("click", () => {
     teamsSection.style.display = "none";
     tableSection.style.display = "block";
     statsSection.style.display = "none";
+    menu.querySelector("ul").style.display = "none";
 });
 
 document.getElementById("statsMenu").addEventListener("click", () => {
@@ -38,6 +41,7 @@ document.getElementById("statsMenu").addEventListener("click", () => {
     teamsSection.style.display = "none";
     tableSection.style.display = "none";
     statsSection.style.display = "block";
+    menu.querySelector("ul").style.display = "none";
 });
 
 // Mannschaft auswählen
@@ -92,10 +96,10 @@ const closeModal = playerModal.querySelector(".close");
 document.querySelectorAll(".player").forEach(player => {
     player.addEventListener("click", () => {
         playerNameElem.textContent = `${player.dataset.number} ${player.dataset.name}`;
-        playerImg.src = "platzhalter.png";
+        playerImg.src = "platzhalter.png"; 
         playerModal.style.display = "block";
 
-        // Reset Akkordeon im Modal
+        // Reset Modal-Akkordeon
         playerModal.querySelectorAll(".accordion-content").forEach(c => c.style.display="none");
         playerModal.querySelectorAll(".accordion-header .toggle").forEach(t=>t.textContent="+");
     });
@@ -105,7 +109,6 @@ closeModal.addEventListener("click", () => {
     playerModal.style.display = "none";
 });
 
-// Modal schließen wenn außerhalb klicken
 window.addEventListener("click", (e) => {
     if (e.target === playerModal) {
         playerModal.style.display = "none";
