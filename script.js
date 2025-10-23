@@ -1,11 +1,7 @@
-const addBtn = document.getElementById("addMemberBtn");
-const memberList = document.getElementById("memberList");
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
 
-addBtn.addEventListener("click", () => {
-    const name = prompt("Name des Mitglieds:");
-    if (name) {
-        const li = document.createElement("li");
-        li.textContent = name;
-        memberList.appendChild(li);
-    }
+menuBtn.addEventListener("click", () => {
+    const ul = menu.querySelector("ul");
+    ul.style.display = (ul.style.display === "block") ? "none" : "block";
 });
