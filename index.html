@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vereinsapp</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -18,8 +19,27 @@
     </header>
 
     <main>
-        <div class="logo-container">
+        <div class="logo-container" id="home">
             <img src="vfr_logo_250-2.png" alt="Vereinslogo" class="logo">
+        </div>
+
+        <!-- Mannschaften -->
+        <div id="teamsSection" class="section" style="display:none;">
+            <h2>Mannschaften</h2>
+            <button id="addTeamBtn">Neue Mannschaft hinzufügen</button>
+            <ul id="teamList"></ul>
+        </div>
+
+        <!-- Tabelle -->
+        <div id="tableSection" class="section" style="display:none;">
+            <h2>Tabelle</h2>
+            <p>Hier können die Vereins-Tabelle/Daten eingetragen werden.</p>
+        </div>
+
+        <!-- Statistiken -->
+        <div id="statsSection" class="section" style="display:none;">
+            <h2>Statistiken</h2>
+            <p>Hier können Statistiken angezeigt werden.</p>
         </div>
     </main>
 
