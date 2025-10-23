@@ -113,4 +113,29 @@ const modalToggles = modal.querySelectorAll(".accordion-item .accordion-header .
 const players = document.querySelectorAll(".player");
 
 players.forEach(player => {
-    pl
+    player.addEventListener("click", () => {
+        // Name ins Modal
+        modalName.textContent = player.dataset.name;
+        // Platzhalter-Bild (kann später durch individuelles Bild ersetzt werden)
+        modalImg.src = "platzhalter.png";
+
+        // Alle Akkordeons schließen
+        modalAccordions.forEach(c => c.style.display = "none");
+        modalToggles.forEach(t => t.textContent = "+");
+
+        // Modal anzeigen
+        modal.style.display = "block";
+    });
+});
+
+// Modal schließen
+modal.querySelector(".close").addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Klick außerhalb Modal schließt auch
+window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
