@@ -13,27 +13,6 @@ header {
     z-index: 200;
 }
 
-.insta-icon {
-    position: absolute;
-    top: 15px;
-    left: 10px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-
-.logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-}
-
-.logo {
-    max-width: 250px;
-    max-height: 250px;
-}
-
 .menu-btn {
     position: absolute;
     top: 15px;
