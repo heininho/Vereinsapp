@@ -7,16 +7,31 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header mit Hamburger-Menü -->
   <header>
-    <div class="menu-btn" id="menu-btn">
-      ☰
-    </div>
+    <div class="menu-btn" id="menu-btn">☰</div>
     <nav id="menu">
       <ul>
-        <li><a href="#">Start</a></li>
-        <li><a href="#">Über</a></li>
-        <li><a href="#">Kontakt</a></li>
+        <li class="menu-item">
+          <div class="menu-toggle">Teams <span class="symbol">+</span></div>
+          <ul class="submenu">
+            <li><a href="#">Team A</a></li>
+            <li><a href="#">Team B</a></li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <div class="menu-toggle">Statistiken <span class="symbol">+</span></div>
+          <ul class="submenu">
+            <li><a href="#">Tore</a></li>
+            <li><a href="#">Spieler</a></li>
+          </ul>
+        </li>
+        <li class="menu-item">
+          <div class="menu-toggle">Tabellen <span class="symbol">+</span></div>
+          <ul class="submenu">
+            <li><a href="#">Liga 1</a></li>
+            <li><a href="#">Liga 2</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </header>
