@@ -1,29 +1,26 @@
-/* Vereinsfarben als Hintergrund */
+/* Basis */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #0085CD; /* Vereinsfarbe Blau */
+    background-color: #0085CD;
     color: white;
     height: 100vh;
 }
 
-/* Header */
 header {
     position: relative;
     padding: 20px;
 }
 
-/* Instagram Icon oben links */
 .insta-icon {
     position: absolute;
-    top: 20px;       
+    top: 20px;
     left: 20px;
     width: 30px;
     height: 30px;
     cursor: pointer;
 }
 
-/* Logo in der Mitte */
 .logo-container {
     display: flex;
     justify-content: center;
@@ -31,13 +28,11 @@ header {
     height: 80%;
 }
 
-/* Logo Größe */
 .logo {
     max-width: 300px;
     max-height: 300px;
 }
 
-/* Menü rechts */
 .menu-btn {
     position: absolute;
     top: 20px;
@@ -47,7 +42,7 @@ header {
 }
 
 nav ul {
-    display: none; 
+    display: none;
     list-style: none;
     padding: 0;
     margin: 10px 0 0 0;
@@ -55,10 +50,6 @@ nav ul {
     border-radius: 5px;
     position: absolute;
     right: 20px;
-}
-
-nav ul li {
-    margin: 0;
 }
 
 nav ul li a {
@@ -72,7 +63,6 @@ nav ul li a:hover {
     background-color: rgba(255,255,255,0.2);
 }
 
-/* Unterseiten */
 .section {
     padding: 20px;
 }
@@ -100,31 +90,49 @@ nav ul li a:hover {
     margin-top: 10px;
 }
 
-/* Mannschaften-Liste */
-#teamList {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
+/* Mannschaften Übersicht */
+.team-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-#teamList li {
-    padding: 5px 10px;
-    background-color: rgba(255,255,255,0.1);
-    margin-bottom: 5px;
+.team-btn {
+    padding: 10px;
+    background-color: #0066cc;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+}
+
+.team-btn:hover {
+    background-color: #0055a3;
+}
+
+/* Spieler klicken */
+.player {
+    cursor: pointer;
+    padding: 5px;
     border-radius: 4px;
 }
 
-/* Buttons */
-button {
-    padding: 8px 15px;
-    margin-top: 10px;
+.player:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* Zurück Button */
+#backBtn {
+    padding: 5px 10px;
+    margin-bottom: 10px;
     background-color: #0066cc;
     border: none;
     color: white;
-    cursor: pointer;
     border-radius: 4px;
+    cursor: pointer;
 }
 
-button:hover {
+#backBtn:hover {
     background-color: #0055a3;
 }
