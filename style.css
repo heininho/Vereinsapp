@@ -216,8 +216,8 @@ nav ul li a:hover {
     color: #0085CD;
 }
 
-.modal .accordion-content {
+#playerModal .accordion-content {
     display: none;
-    padding: 5px 10px 10px 10px;
-    color: black; /* Schrift schwarz */
+    padding: 10px 15px; 
+    color: black !important; /* sorgt dafür, dass es auf Handy sichtbar ist */
 }
