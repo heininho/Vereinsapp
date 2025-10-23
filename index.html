@@ -42,7 +42,6 @@
         <button id="backBtn">← Zur Übersicht</button>
         <h2 id="teamName">Mannschaft</h2>
 
-        <!-- Tabs für Kader / Trainer -->
         <div class="tabs">
             <button class="tab-btn active" data-tab="kaderTab">Kader</button>
             <button class="tab-btn" data-tab="trainerTab">Trainerteam</button>
@@ -53,20 +52,23 @@
             <div class="accordion">
                 <div class="accordion-item">
                     <div class="accordion-header">Torhüter <span class="toggle">+</span></div>
-                    <div class="accordion-content">Name</div>
+                    <div class="accordion-content">
+                        <ul class="player-list">
+                            <li class="player" data-name="Titus Tenschert" data-number="1">1 Titus Tenschert</li>
+                            <li class="player" data-name="Tim Hieronymus" data-number="23">23 Tim Hieronymus</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="accordion-item">
                     <div class="accordion-header">Abwehr <span class="toggle">+</span></div>
-                    <div class="accordion-content">Name</div>
+                    <div class="accordion-content">
+                        <ul class="player-list">
+                            <li class="player" data-name="Max Mustermann" data-number="2">2 Max Mustermann</li>
+                            <li class="player" data-name="Paul Beispiel" data-number="3">3 Paul Beispiel</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">Mittelfeld <span class="toggle">+</span></div>
-                    <div class="accordion-content">Name</div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">Stürmer <span class="toggle">+</span></div>
-                    <div class="accordion-content">Name</div>
-                </div>
+                <!-- Mittelfeld, Stürmer analog -->
             </div>
         </div>
 
@@ -75,11 +77,19 @@
             <div class="accordion">
                 <div class="accordion-item">
                     <div class="accordion-header">Cheftrainer <span class="toggle">+</span></div>
-                    <div class="accordion-content">Name</div>
+                    <div class="accordion-content">
+                        <ul class="player-list">
+                            <li class="player" data-name="Hans Trainer" data-number="">Hans Trainer</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="accordion-item">
                     <div class="accordion-header">Co-Trainer <span class="toggle">+</span></div>
-                    <div class="accordion-content">Name</div>
+                    <div class="accordion-content">
+                        <ul class="player-list">
+                            <li class="player" data-name="Klaus Co" data-number="">Klaus Co</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,6 +106,35 @@
         <h2>Statistiken</h2>
         <p>Hier können Statistiken angezeigt werden.</p>
     </div>
+
+    <!-- Spielerprofil Modal -->
+    <div id="playerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="platzhalter.png" alt="Spielerbild" class="player-img">
+            <h2 class="player-name">Name</h2>
+            <hr>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">Beim VfR seit <span class="toggle">+</span></div>
+                    <div class="accordion-content">Platzhalter</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Größe <span class="toggle">+</span></div>
+                    <div class="accordion-content">Platzhalter</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Geburtsdatum <span class="toggle">+</span></div>
+                    <div class="accordion-content">Platzhalter</div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Nationalität <span class="toggle">+</span></div>
+                    <div class="accordion-content">Platzhalter</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </main>
 
 <script src="script.js"></script>
