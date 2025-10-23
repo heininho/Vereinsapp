@@ -8,12 +8,10 @@
 </head>
 <body>
     <header>
-        <!-- Instagram Icon links -->
         <a href="https://www.instagram.com/dein_account" target="_blank">
             <img src="Instagram_icon.png" alt="Instagram" class="insta-icon">
         </a>
 
-        <!-- Hamburger Menü rechts -->
         <div class="menu-btn" id="menuBtn">☰</div>
         <nav id="menu">
             <ul>
@@ -25,42 +23,51 @@
     </header>
 
     <main>
-        <!-- Startseite Logo -->
+        <!-- Startseite -->
         <div class="logo-container" id="home">
             <img src="vfr_logo_250-2.png" alt="Vereinslogo" class="logo">
         </div>
 
-        <!-- Mannschaften -->
-        <div id="teamsSection" class="section" style="display:none;">
-            <h2>Mannschaft</h2>
+        <!-- Mannschaftsübersicht -->
+        <div id="teamOverview" class="section" style="display:none;">
+            <h2>Mannschaften</h2>
+            <div class="team-buttons">
+                <button class="team-btn" data-team="team1">1. Mannschaft</button>
+                <button class="team-btn" data-team="team2">2. Mannschaft</button>
+            </div>
+        </div>
 
-            <!-- Tabs oben -->
+        <!-- Mannschaft Details -->
+        <div id="teamsSection" class="section" style="display:none;">
+            <button id="backBtn">← Zur Übersicht</button>
+            <h2 id="teamName">Mannschaft</h2>
+
+            <!-- Tabs für Kader / Trainer -->
             <div class="tabs">
                 <button class="tab-btn active" data-tab="kaderTab">Kader</button>
                 <button class="tab-btn" data-tab="trainerTab">Trainerteam</button>
             </div>
 
-            <!-- Inhalt Kader -->
+            <!-- Kader Details -->
             <div id="kaderTab" class="tab-content">
                 <h3>Kader</h3>
                 <ul>
-                    <li>Torhüter</li>
-                    <li>Abwehr</li>
-                    <li>Mittelfeld</li>
-                    <li>Stürmer</li>
+                    <li class="player" data-player="Torhüter">Torhüter</li>
+                    <li class="player" data-player="Abwehr">Abwehr</li>
+                    <li class="player" data-player="Mittelfeld">Mittelfeld</li>
+                    <li class="player" data-player="Stürmer">Stürmer</li>
                 </ul>
             </div>
 
-            <!-- Inhalt Trainerteam -->
+            <!-- Trainer Details -->
             <div id="trainerTab" class="tab-content" style="display:none;">
                 <h3>Trainerteam</h3>
                 <ul>
-                    <li>Chef</li>
-                    <li>Co-Trainer</li>
+                    <li class="player" data-player="Cheftrainer">Cheftrainer</li>
+                    <li class="player" data-player="Co-Trainer">Co-Trainer</li>
                 </ul>
             </div>
-
-        
+        </div>
 
         <!-- Tabelle -->
         <div id="tableSection" class="section" style="display:none;">
