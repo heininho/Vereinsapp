@@ -1,4 +1,4 @@
-// Hamburger Menü
+// Menü
 const menuBtn = document.getElementById("menuBtn");
 const menu = document.getElementById("menu");
 
@@ -22,7 +22,6 @@ const statsSection = document.getElementById("statsSection");
 const teamName = document.getElementById("teamName");
 const backBtn = document.getElementById("backBtn");
 
-// Menü Klick
 document.getElementById("teamsMenu").addEventListener("click", () => {
     home.style.display = "none";
     teamOverview.style.display = "block";
@@ -56,7 +55,7 @@ document.querySelectorAll(".team-btn").forEach(btn => {
     });
 });
 
-// Zurück zur Übersicht
+// Zurück
 backBtn.addEventListener("click", () => {
     teamsSection.style.display = "none";
     teamOverview.style.display = "block";
@@ -75,9 +74,17 @@ tabButtons.forEach(btn => {
     });
 });
 
-// Klick auf Spieler/Position
-document.querySelectorAll(".player").forEach(player => {
-    player.addEventListener("click", () => {
-        alert(`Hier könnten Details angezeigt werden: ${player.dataset.player}`);
+// Akkordeon
+document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+        const toggle = header.querySelector(".toggle");
+        if (content.style.display === "block") {
+            content.style.display = "none";
+            toggle.textContent = "+";
+        } else {
+            content.style.display = "block";
+            toggle.textContent = "−";
+        }
     });
 });
