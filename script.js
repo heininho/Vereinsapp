@@ -1,113 +1,90 @@
-// Hamburger Menü
+// Hamburger-Menü
 const menuBtn = document.getElementById("menuBtn");
-const menu = document.getElementById("menu");
+const menuList = document.querySelector("#menu ul");
 
 menuBtn.addEventListener("click", () => {
-    const ul = menu.querySelector("ul");
-    ul.style.display = (ul.style.display === "block") ? "none" : "block";
+    menuList.style.display = (menuList.style.display === "block") ? "none" : "block";
 });
 
-// Sektionen
-const home = document.getElementById("home");
-const teamOverview = document.getElementById("teamOverview");
-const teamsSection = document.getElementById("teamsSection");
-const tableSection = document.getElementById("tableSection");
-const statsSection = document.getElementById("statsSection");
-const teamName = document.getElementById("teamName");
-const backBtn = document.getElementById("backBtn");
+// Bottom Navigation Buttons
+const bottomBtns = document.querySelectorAll(".bottom-btn");
+const sections = {
+    home: document.getElementById("home"),
+    teamOverview: document.getElementById("teamOverview"),
+    teamsSection: document.getElementById("teamsSection"),
+    tableSection: document.getElementById("tableSection"),
+    statsSection: document.getElementById("statsSection")
+};
 
-document.getElementById("teamsMenu").addEventListener("click", () => {
-    home.style.display = "none";
-    teamOverview.style.display = "block";
-    teamsSection.style.display = "none";
-    tableSection.style.display = "none";
-    statsSection.style.display = "none";
-});
-
-document.getElementById("tableMenu").addEventListener("click", () => {
-    home.style.display = "none";
-    teamOverview.style.display = "none";
-    teamsSection.style.display = "none";
-    tableSection.style.display = "block";
-    statsSection.style.display = "none";
-});
-
-document.getElementById("statsMenu").addEventListener("click", () => {
-    home.style.display = "none";
-    teamOverview.style.display = "none";
-    teamsSection.style.display = "none";
-    tableSection.style.display = "none";
-    statsSection.style.display = "block";
-});
-
-// Mannschaft auswählen
-document.querySelectorAll(".team-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-        teamName.textContent = btn.textContent;
-        teamOverview.style.display = "none";
-        teamsSection.style.display = "block";
+bottomBtns.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+        // Aktive Button markieren
+        bottomBtns.forEach(b=>b.classList.remove("active"));
+        btn.classList.add("active");
+        // Richtige Section anzeigen
+        for (let key in sections) { sections[key].style.display = (key===btn.dataset.section)?"block":"none"; }
+        // Hamburger schließen falls offen
+        menuList.style.display = "none";
     });
 });
 
-// Zurück
-backBtn.addEventListener("click", () => {
-    teamsSection.style.display = "none";
-    teamOverview.style.display = "block";
+// Mannschaftsauswahl
+const teamBtns = document.querySelectorAll(".team-btn");
+const teamNameHeader = document.getElementById("teamName");
+const backBtn = document.getElementById("backBtn");
+
+teamBtns.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+        sections.teamsSection.style.display="block";
+        sections.teamOverview.style.display="none";
+        teamNameHeader.textContent = btn.textContent;
+    });
+});
+backBtn.addEventListener("click", ()=>{
+    sections.teamOverview.style.display="block";
+    sections.teamsSection.style.display="none";
 });
 
-// Tabs
-const tabButtons = document.querySelectorAll(".tab-btn");
+// Tabs wechseln
+const tabBtns = document.querySelectorAll(".tab-btn");
 const tabContents = document.querySelectorAll(".tab-content");
 
-tabButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        tabContents.forEach(tc => tc.style.display = "none");
-        tabButtons.forEach(b => b.classList.remove("active"));
-        document.getElementById(btn.dataset.tab).style.display = "block";
+tabBtns.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+        tabBtns.forEach(b=>b.classList.remove("active"));
         btn.classList.add("active");
+        tabContents.forEach(c=>c.style.display = (c.id===btn.dataset.tab)?"block":"none");
     });
 });
 
 // Akkordeon
-document.querySelectorAll(".accordion-header").forEach(header => {
-    header.addEventListener("click", () => {
+const accordions = document.querySelectorAll(".accordion-header");
+accordions.forEach(header=>{
+    header.addEventListener("click", ()=>{
         const content = header.nextElementSibling;
         const toggle = header.querySelector(".toggle");
-        if (content.style.display === "block") {
-            content.style.display = "none";
-            toggle.textContent = "+";
-        } else {
-            content.style.display = "block";
-            toggle.textContent = "−";
-        }
+        if(content.style.display==="block"){ content.style.display="none"; toggle.textContent="+"; }
+        else{ content.style.display="block"; toggle.textContent="-"; }
     });
 });
 
 // Spielerprofil Modal
-const playerModal = document.getElementById("playerModal");
-const playerNameElem = playerModal.querySelector(".player-name");
-const playerImg = playerModal.querySelector(".player-img");
-const closeModal = playerModal.querySelector(".close");
+const modal = document.getElementById("playerModal");
+const modalImg = modal.querySelector(".player-img");
+const modalName = modal.querySelector(".player-name");
+const modalAccordions = modal.querySelectorAll(".accordion-item .accordion-content");
+const modalToggles = modal.querySelectorAll(".accordion-item .accordion-header .toggle");
 
-document.querySelectorAll(".player").forEach(player => {
-    player.addEventListener("click", () => {
-        playerNameElem.textContent = `${player.dataset.number} ${player.dataset.name}`;
-        playerImg.src = "platzhalter.png";
-        playerModal.style.display = "block";
-
-        // Reset Akkordeon im Modal
-        playerModal.querySelectorAll(".accordion-content").forEach(c => c.style.display="none");
-        playerModal.querySelectorAll(".accordion-header .toggle").forEach(t=>t.textContent="+");
+const players = document.querySelectorAll(".player");
+players.forEach(player=>{
+    player.addEventListener("click", ()=>{
+        modalName.textContent = player.dataset.name;
+        modalImg.src = "platzhalter.png";
+        modalAccordions.forEach(c=>c.style.display="none");
+        modalToggles.forEach(t=>t.textContent="+");
+        modal.style.display="block";
     });
 });
 
-closeModal.addEventListener("click", () => {
-    playerModal.style.display = "none";
-});
-
-// Modal schließen wenn außerhalb klicken
-window.addEventListener("click", (e) => {
-    if (e.target === playerModal) {
-        playerModal.style.display = "none";
-    }
-});
+modal.querySelector(".close").addEventListener("click", ()=>modal.style.display="none");
+window.addEventListener("click", e=>{ if(e.target===modal) modal.style.display="none"; });
