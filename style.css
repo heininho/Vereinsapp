@@ -4,17 +4,19 @@ body {
     font-family: Arial, sans-serif;
     background-color: #0085CD;
     color: white;
+    overflow-x: hidden;
 }
 
 header {
     position: relative;
-    padding: 20px;
+    padding: 15px 10px;
+    z-index: 200;
 }
 
 .insta-icon {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 15px;
+    left: 10px;
     width: 30px;
     height: 30px;
     cursor: pointer;
@@ -24,18 +26,18 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80%;
+    height: 50vh;
 }
 
 .logo {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 250px;
+    max-height: 250px;
 }
 
 .menu-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 10px;
     font-size: 30px;
     cursor: pointer;
 }
@@ -45,10 +47,11 @@ nav ul {
     list-style: none;
     padding: 0;
     margin: 10px 0 0 0;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.8);
     border-radius: 5px;
     position: absolute;
-    right: 20px;
+    right: 0;
+    width: 200px;
 }
 
 nav ul li a {
@@ -62,8 +65,9 @@ nav ul li a:hover {
     background-color: rgba(255,255,255,0.2);
 }
 
+/* Sektionen */
 .section {
-    padding: 20px;
+    padding: 15px;
 }
 
 /* Tabs */
@@ -72,13 +76,14 @@ nav ul li a:hover {
 }
 
 .tab-btn {
-    padding: 8px 15px;
+    padding: 10px 15px;
     margin-right: 5px;
     background-color: #0066cc;
     border: none;
     color: white;
     cursor: pointer;
     border-radius: 4px;
+    font-size: 16px;
 }
 
 .tab-btn.active {
@@ -89,61 +94,51 @@ nav ul li a:hover {
     margin-top: 10px;
 }
 
-/* Mannschaft Übersicht */
-.team-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.team-btn {
-    padding: 10px;
+/* Mannschaften Übersicht */
+.team-btn, #backBtn {
+    padding: 14px;
     background-color: #0066cc;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
+    margin-bottom: 12px;
 }
 
-.team-btn:hover {
-    background-color: #0055a3;
-}
-
-#backBtn {
-    padding: 5px 10px;
-    margin-bottom: 10px;
-    background-color: #0066cc;
-    border: none;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#backBtn:hover {
+.team-btn:hover, #backBtn:hover {
     background-color: #0055a3;
 }
 
 /* Akkordeon */
-.accordion-item {
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    margin-bottom: 5px;
-}
-
 .accordion-header {
     cursor: pointer;
-    padding: 10px 5px;
+    padding: 12px 15px;
+    background-color: rgba(255,255,255,0.1);
+    margin-bottom: 6px;
+    border-radius: 4px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    font-size: 16px;
 }
 
 .accordion-content {
     display: none;
-    padding: 5px 10px 10px 10px;
+    padding: 10px 15px;
+    color: black;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    margin-bottom: 8px;
 }
 
-/* Spielerprofil Modal */
+/* Spieler */
+.player {
+    cursor: pointer;
+    padding: 12px;
+    margin-bottom: 14px;
+}
+
+/* Spielerprofil Modal (Bottom Sheet) */
 .modal {
     display: none;
     position: fixed;
@@ -161,47 +156,71 @@ nav ul li a:hover {
     z-index: 1000;
 }
 
-@keyframes slideUp {
-    from {transform: translateY(100%);}
-    to {transform: translateY(0);}
-}
-
 .modal-content {
-    padding: 10px 20px;
-}
-
-.close {
-    float: right;
-    font-size: 25px;
-    cursor: pointer;
+    padding: 15px;
 }
 
 .player-img {
     width: 100%;
-    height: 66%;
+    max-height: 200px;
     object-fit: cover;
+    border-radius: 6px;
 }
 
 .player-name {
-    color: #0085CD;
     text-align: center;
-    margin: 10px 0;
+    font-size: 20px;
+    color: #0085CD;
+    margin-top: 10px;
 }
 
-.modal .accordion-item {
-    border-bottom: 1px solid #0085CD;
-    margin-bottom: 5px;
+/* Modal Akkordeon abwechselnde Farben */
+#playerModal .accordion-item:nth-child(odd) .accordion-content {
+    background-color: #ffffff;
 }
 
-.modal .accordion-header {
+#playerModal .accordion-item:nth-child(even) .accordion-content {
+    background-color: #e0e0e0;
+}
+
+/* Close Button */
+.close {
+    color: #333;
+    float: right;
+    font-size: 24px;
     cursor: pointer;
-    padding: 10px 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
-.modal .accordion-content {
-    display: none;
-    padding: 5px 10px 10px 10px;
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #0066cc;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 8px 0;
+    z-index: 150;
+}
+
+.bottom-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.bottom-btn.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Animation */
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
 }
