@@ -1,16 +1,59 @@
+/* Vereinsfarben als Hintergrund */
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 20px;
+    background-color: #0085CD; /* z.B. Vereinsfarbe Blau */
+    color: white;
+    height: 100vh;
 }
 
-button {
-    padding: 10px 20px;
-    margin: 10px;
+/* Header & Menü */
+header {
+    position: relative;
+    padding: 20px;
+    text-align: right;
+}
+
+.menu-btn {
+    font-size: 30px;
     cursor: pointer;
 }
 
-ul {
-    list-style-type: none;
+nav ul {
+    display: none; /* Untermenü standardmäßig versteckt */
+    list-style: none;
     padding: 0;
+    margin: 10px 0 0 0;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 5px;
+    position: absolute;
+    right: 20px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* Logo */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+
+.logo {
+    max-width: 300px;
+    max-height: 300px;
 }
